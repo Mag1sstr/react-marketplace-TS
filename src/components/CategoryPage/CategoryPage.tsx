@@ -30,7 +30,7 @@ export default function CategoryPage() {
   return (
     <section className={styles.category}>
       <div className="conteiner">
-        <h1></h1>
+        <h1 className={styles.name}>{products[0].category.name}</h1>
         <div className={styles.row}>
           {products?.map((item) => (
             <Card
