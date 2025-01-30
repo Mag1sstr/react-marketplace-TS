@@ -8,6 +8,12 @@ import Pagination from "../Pagination/Pagination";
 
 export default function MainPage() {
   const [data, setData] = useState<IProducts[] | null>(null);
+  const countCards = 12;
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(countCards);
+  const totalPage = Math.ceil(Number(data?.length) / countCards);
+  console.log(totalPage);
+
   useEffect(() => {
     axios.get("https://api.escuelajs.co/api/v1/products").then((resp) => {
       setData(resp.data);
@@ -22,7 +28,7 @@ export default function MainPage() {
         <Categories />
         <div className="row">
           {data &&
-            data.slice(0, 12).map((item) => {
+            data.slice(startIndex, endIndex).map((item) => {
               return (
                 <Card
                   key={item.id}
@@ -34,7 +40,11 @@ export default function MainPage() {
               );
             })}
         </div>
-        <Pagination />
+        <Pagination
+          totalPage={totalPage}
+          setStartIndex={setStartIndex}
+          setEndIndex={setEndIndex}
+        />
       </div>
     </div>
   );
