@@ -1,0 +1,14 @@
+.categories {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  gap: 30px;
+}
+.categories::-webkit-scrollbar-thumb {
+  border-radius: 18px;
+  background: #ebebeb;
+}
+.categories::-webkit-scrollbar {
+  width: 10px;
+}

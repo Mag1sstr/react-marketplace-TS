@@ -1,0 +1,9 @@
+.category {
+  padding: 20px 0;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}

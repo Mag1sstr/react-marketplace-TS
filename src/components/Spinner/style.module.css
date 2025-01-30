@@ -1,0 +1,20 @@
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border: 5px solid #6ebeff;
+  border-bottom-color: #337ab7;
+  border-radius: 50%;
+  animation: spinnerAnim 0.8s linear infinite;
+}
+@keyframes spinnerAnim {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,0 +1,40 @@
+.card {
+  width: 284px;
+  height: 298px;
+  border: 1px solid #d6d6d6;
+  border-radius: 13px;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  cursor: pointer;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  max-width: 140px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 18.2px;
+  color: #3e3e3e;
+  margin-bottom: 15px;
+}
+.price {
+  font-size: 18px;
+  font-family: "Prompt", serif;
+  font-weight: 600;
+  color: #3e3e3e;
+}
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
