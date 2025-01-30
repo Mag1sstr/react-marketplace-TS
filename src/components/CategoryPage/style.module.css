@@ -1,9 +1,14 @@
 .category {
   padding: 20px 0;
+  font-family: "Inter", sans-serif;
 }
 .row {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 20px;
+}
+.name {
+  font-size: 46px;
+  margin-bottom: 20px;
 }
