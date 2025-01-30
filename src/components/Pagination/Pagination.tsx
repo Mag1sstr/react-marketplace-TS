@@ -1,13 +1,19 @@
 import { useState } from "react";
 
-export default function Pagination() {
+interface IProps {
+  totalPage: number;
+  setStartIndex: (num: number) => void;
+  setEndIndex: (num: number) => void;
+}
+
+export default function Pagination({ totalPage }: IProps) {
   const [main, setMain] = useState(1);
 
   return (
     <div
       style={{ display: "flex", gap: 10, fontSize: 28, alignItems: "center" }}
     >
-      {[...Array(10)].map((_, i) => {
+      {[...Array(totalPage)].map((_, i) => {
         return (
           <div
             onClick={() => {
