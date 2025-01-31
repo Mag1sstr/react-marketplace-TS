@@ -1,0 +1,28 @@
+.input {
+  width: 4rem;
+  font-size: 16px;
+  background: #ebebeb;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+}
+.input:focus {
+  background: #fff;
+}
+.btn {
+  opacity: 0;
+  visibility: hidden;
+  background: #1e90ff;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+}
