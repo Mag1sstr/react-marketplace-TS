@@ -2,11 +2,10 @@ import { useState } from "react";
 
 interface IProps {
   totalPage: number;
-  setStartIndex: (num: number) => void;
-  setEndIndex: (num: number) => void;
+  setCurrentPage: (num: number) => void;
 }
 
-export default function Pagination({ totalPage }: IProps) {
+export default function Pagination({ totalPage, setCurrentPage }: IProps) {
   const [main, setMain] = useState(1);
 
   return (
@@ -16,8 +15,10 @@ export default function Pagination({ totalPage }: IProps) {
       {[...Array(totalPage)].map((_, i) => {
         return (
           <div
+            key={i}
             onClick={() => {
               setMain(i + 1);
+              setCurrentPage(i + 1);
             }}
             style={
               i + 1 === main
