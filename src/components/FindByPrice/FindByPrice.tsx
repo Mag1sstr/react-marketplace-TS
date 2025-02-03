@@ -1,12 +1,23 @@
 import styles from "./style.module.css";
 import { useState } from "react";
-import searchImg from "../../images/search.png";
+import axios from "axios";
+import { IProducts } from "../../interfaces/interfaces";
 
-export default function FindByPrice() {
-  const [value, setValue] = useState({
+interface IProps {
+  setData: (products: IProducts[]) => void;
+}
+
+interface IValue {
+  start: any;
+  end: any;
+}
+
+export default function FindByPrice({ setData }: IProps) {
+  const [value, setValue] = useState<IValue>({
     start: "",
     end: "",
   });
+
   return (
     <div>
       <div>
@@ -15,18 +26,35 @@ export default function FindByPrice() {
           from{" "}
           <input
             value={value.start}
-            onChange={(e) => setValue({ ...value, start: e.target.value })}
+            onChange={(e) =>
+              e.target.value == Number(e.target.value)
+                ? setValue({ ...value, start: e.target.value })
+                : null
+            }
             className={styles.input}
             type="text"
           />{" "}
           to{" "}
           <input
             value={value.end}
-            onChange={(e) => setValue({ ...value, end: e.target.value })}
+            onChange={(e) =>
+              e.target.value == Number(e.target.value)
+                ? setValue({ ...value, end: e.target.value })
+                : null
+            }
             className={styles.input}
             type="text"
           />{" "}
           <button
+            onClick={() => {
+              axios
+                .get(
+                  `https://api.escuelajs.co/api/v1/products/?price_min=${value.start}&price_max=${value.end}`
+                )
+                .then((resp) => {
+                  setData(resp.data);
+                });
+            }}
             className={`${styles.btn} ${
               value.start.length && value.end.length ? styles.active : ""
             }`}
