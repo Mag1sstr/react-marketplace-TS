@@ -14,6 +14,7 @@ export default function Categories() {
 
   return (
     <div className="conteiner">
+      <h1 className={styles.title}>Categories</h1>
       <section className={styles.categories}>
         {categories?.map((item) => {
           return (
