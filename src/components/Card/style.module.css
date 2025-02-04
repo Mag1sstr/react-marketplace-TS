@@ -6,6 +6,7 @@
   font-family: "Inter", sans-serif;
   overflow: hidden;
   cursor: pointer;
+  transition: 0.1s ease-in;
 }
 .column {
   display: flex;
@@ -37,4 +38,8 @@
   height: 200px;
   object-fit: cover;
   margin-bottom: 15px;
+}
+.card:hover {
+  box-shadow: 2px 2px 15px black;
+  transform: translateY(-5%);
 }
