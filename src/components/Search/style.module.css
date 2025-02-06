@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 15px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+}
+.input {
+  outline: none;
+  background: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 18px;
+}
+.image {
+  width: 25px;
+}
