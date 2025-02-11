@@ -3,6 +3,7 @@ import styles from "./style.module.css";
 import axios from "axios";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import { ICategory } from "../../interfaces/interfaces";
+import { useTranslation } from "react-i18next";
 
 export default function Categories() {
   const [categories, setCategories] = useState<ICategory[] | null>(null);
@@ -12,9 +13,11 @@ export default function Categories() {
     });
   }, []);
 
+  const { t } = useTranslation();
+
   return (
     <div className="conteiner">
-      <h1 className={styles.title}>Categories</h1>
+      <h1 className={styles.title}>{t("categories")}</h1>
       <section className={styles.categories}>
         {categories?.map((item) => {
           return (
