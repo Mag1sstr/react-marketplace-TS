@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { IProducts } from "../../interfaces/interfaces";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   setData: (products: IProducts[]) => void;
@@ -17,13 +18,14 @@ export default function FindByPrice({ setData }: IProps) {
     start: "",
     end: "",
   });
+  const { t } = useTranslation();
 
   return (
     <div>
       <div>
-        <p style={{ fontWeight: 600 }}>Price:</p>
+        <p style={{ fontWeight: 600 }}>{t("price")}:</p>
         <span>
-          from{" "}
+          {t("from")}{" "}
           <input
             value={value.start}
             onChange={(e) =>
@@ -34,7 +36,7 @@ export default function FindByPrice({ setData }: IProps) {
             className={styles.input}
             type="text"
           />{" "}
-          to{" "}
+          {t("to")}{" "}
           <input
             value={value.end}
             onChange={(e) =>
@@ -59,7 +61,7 @@ export default function FindByPrice({ setData }: IProps) {
               value.start.length && value.end.length ? styles.active : ""
             }`}
           >
-            Find
+            {t("find")}
           </button>
         </span>
       </div>
