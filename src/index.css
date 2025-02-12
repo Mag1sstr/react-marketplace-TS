@@ -6,6 +6,7 @@
 }
 
 body {
+  min-height: 100vh;
   background: linear-gradient(180deg, #fff 6.1%, #f7f7f7 68.7%);
   font-family: "Prompt", serif;
   font-weight: 400;
@@ -29,4 +30,8 @@ body {
 
 .main {
   padding: 20px 0;
+}
+.dark {
+  color: #fff;
+  background-color: #222;
 }
