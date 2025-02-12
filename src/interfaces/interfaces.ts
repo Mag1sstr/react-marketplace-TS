@@ -14,3 +14,8 @@ export interface ICategory {
   image: string;
   id: number;
 }
+
+export interface IUser {
+  avatar: string;
+  email: string;
+}
