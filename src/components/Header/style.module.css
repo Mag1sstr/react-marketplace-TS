@@ -1,12 +1,12 @@
 .header {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ebebeb;
   margin-bottom: 20px;
 }
 .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 .img {
   width: 80px;
@@ -15,7 +15,78 @@
   display: flex;
   align-items: center;
   font-size: 35px;
+  user-select: none;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.logo:hover {
+  transform: scale(1.1);
 }
 .cart {
+  position: relative;
+  cursor: pointer;
+}
+.count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #1e90ff;
+  border-radius: 50%;
+  color: #fff;
+}
+.cartImage {
+  transition: 0.1s;
   width: 60px;
+}
+.login {
+  transition: 0.1s;
+  width: 50px;
+}
+
+.login:hover {
+  transform: scale(1.1);
+}
+.block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user img {
+  width: 55px;
+  border-radius: 10px;
+}
+.exit {
+  padding: 3px 6px;
+  border-radius: 10px;
+  background: #1e90ff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.lang {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.1s;
+}
+.lang:hover {
+  background: #1e90ff;
+  color: #fff;
+}
+.lang:active {
+  opacity: 0.7;
 }

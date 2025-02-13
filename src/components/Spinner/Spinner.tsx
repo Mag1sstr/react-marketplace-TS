@@ -1,5 +1,9 @@
 import styles from "./style.module.css";
 
 export default function Spinner() {
-  return <span className={styles.spinner}></span>;
+  return (
+    <div className={styles.wrapper}>
+      <span className={styles.spinner}></span>
+    </div>
+  );
 }

@@ -19,3 +19,11 @@ export interface IUser {
   avatar: string;
   email: string;
 }
+
+export interface ICart {
+  id: number;
+  title: string;
+  price: number;
+  images: string[] | string;
+  count: number;
+}

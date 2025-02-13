@@ -8,7 +8,7 @@
 body {
   min-height: 100vh;
   background: linear-gradient(180deg, #fff 6.1%, #f7f7f7 68.7%);
-  font-family: "Prompt", serif;
+  font-family: "Inter", serif;
   font-weight: 400;
 }
 .conteiner {

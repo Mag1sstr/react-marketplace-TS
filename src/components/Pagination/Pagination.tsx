@@ -10,7 +10,13 @@ export default function Pagination({ totalPage, setCurrentPage }: IProps) {
 
   return (
     <div
-      style={{ display: "flex", gap: 10, fontSize: 28, alignItems: "center" }}
+      style={{
+        display: "flex",
+        gap: 10,
+        fontSize: 28,
+        alignItems: "center",
+        overflow: "auto",
+      }}
     >
       {[...Array(totalPage)].map((_, i) => {
         return (
