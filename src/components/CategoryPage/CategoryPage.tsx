@@ -6,10 +6,13 @@ import { IProducts } from "../../interfaces/interfaces";
 import Card from "../Card/Card";
 import Spinner from "../Spinner/Spinner";
 import NoProducts from "../NoProducts/NoProducts";
+import { IContext, useTheme } from "../../contexts/ThemeContext";
 
 export default function CategoryPage() {
   const [products, setProducts] = useState<IProducts[] | null>(null);
   const { id } = useParams();
+
+  const { dark }: IContext = useTheme();
 
   useEffect(() => {
     axios
@@ -28,7 +31,7 @@ export default function CategoryPage() {
   }
 
   return (
-    <section className={styles.category}>
+    <section className={`${styles.category} ${dark ? "dark" : ""}`}>
       <div className="conteiner">
         <h1 className={styles.name}>{products[0].category.name}</h1>
         <div className={styles.row}>
