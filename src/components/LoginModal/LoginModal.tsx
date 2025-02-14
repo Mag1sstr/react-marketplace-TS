@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./style.module.css";
 import { AuthContext } from "../../contexts/AuthContext";
+import axios from "axios";
 interface IProps {
   clickLogin: boolean;
   setClickLogin: (bool: boolean) => void;
@@ -9,7 +10,9 @@ export default function LoginModal({ clickLogin, setClickLogin }: IProps) {
   const [value, setValue] = useState({
     login: "john@mail.com",
     password: "changeme",
+    name: "",
   });
+  const [success, setSuccess] = useState(false);
   const [tab, setTab] = useState("login");
   const { signIn, error } = useContext(AuthContext);
 
@@ -30,7 +33,7 @@ export default function LoginModal({ clickLogin, setClickLogin }: IProps) {
               onChange={(e) => setValue({ ...value, login: e.target.value })}
               className={styles.input}
               type="text"
-              placeholder="Login"
+              placeholder="Email"
             />
             <input
               value={value.password}
@@ -54,8 +57,69 @@ export default function LoginModal({ clickLogin, setClickLogin }: IProps) {
         {tab === "register" && (
           <div className={styles.inner}>
             <h2>Registration</h2>
+            {!success ? (
+              <>
+                <input
+                  value={value.name}
+                  onChange={(e) => setValue({ ...value, name: e.target.value })}
+                  className={styles.input}
+                  type="text"
+                  placeholder="Name"
+                />
+                <input
+                  value={value.login}
+                  onChange={(e) =>
+                    setValue({ ...value, login: e.target.value })
+                  }
+                  className={styles.input}
+                  type="text"
+                  placeholder="Email"
+                />
+                <input
+                  value={value.password}
+                  onChange={(e) =>
+                    setValue({ ...value, password: e.target.value })
+                  }
+                  className={styles.input}
+                  type="text"
+                  placeholder="Password"
+                />
 
-            <button className={styles.btn}>Sign up</button>
+                <button
+                  onClick={() => {
+                    axios
+                      .post("https://api.escuelajs.co/api/v1/users/", {
+                        name: value.name,
+                        email: value.login,
+                        password: value.password,
+                        avatar:
+                          "https://cdn-icons-png.flaticon.com/512/219/219983.png",
+                      })
+                      .then((resp) => {
+                        console.log(resp);
+                        if (resp.status == 201) {
+                          setSuccess(true);
+                        }
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  }}
+                  className={styles.btn}
+                >
+                  Sign up
+                </button>
+              </>
+            ) : (
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <h2>You are registered!</h2>
+                <img
+                  style={{ width: 75 }}
+                  src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png"
+                  alt=""
+                />
+              </div>
+            )}
             <button onClick={() => setTab("login")} className={styles.reg}>
               Back
             </button>
