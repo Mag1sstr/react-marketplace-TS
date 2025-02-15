@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
 import Categories from "../Categories/Categories";
-import logo from "../../images/logo.png";
-import cartImage from "../../images/cart.png";
+// import logo from "../../images/logo.png";
+import cartImage from "../../images/Vector.svg";
 import loginIcon from "../../images/login.png";
 import LoginModal from "../LoginModal/LoginModal";
 import { useContext, useState } from "react";
@@ -27,10 +27,21 @@ export default function Header() {
         <div className="conteiner">
           <div className={styles.row}>
             <div onClick={() => navigate("/")} className={styles.logo}>
-              <img className={styles.img} src={logo} alt="" />
+              {/* <img className={styles.img} src={logo} alt="" /> */}
               <p>Marketplace</p>
             </div>
             <div className={styles.block}>
+              <div className={styles.cart}>
+                <img
+                  onClick={() => navigate("/basket")}
+                  className={styles.cartImage}
+                  src={cartImage}
+                  alt=""
+                />
+                {cart.length > 0 && (
+                  <div className={styles.count}>{cart.length}</div>
+                )}
+              </div>
               {user ? (
                 <div className={styles.user}>
                   <img src={user.avatar} alt="" />
@@ -56,17 +67,6 @@ export default function Header() {
                   alt=""
                 />
               )}
-              <div className={styles.cart}>
-                <img
-                  onClick={() => navigate("/basket")}
-                  className={styles.cartImage}
-                  src={cartImage}
-                  alt=""
-                />
-                {cart.length > 0 && (
-                  <div className={styles.count}>{cart.length}</div>
-                )}
-              </div>
               <button
                 className={styles.lang}
                 onClick={() => {
